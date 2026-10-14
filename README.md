@@ -34,10 +34,6 @@ The model is the mind. The harness is the body: the loop, the tools, the context
 7. Builds go on as long as they have to.
 8. If this is your first night at Harness Club, you build.
 
-## Start a chapter
-
-Want Harness Club in your city? Ask in the [Discord](https://discord.gg/fhZzuRgpvH).
-
 ## This repo
 
 `index.html` is the whole site, served by GitHub Pages from `main`. Edit it and push to update the site.
