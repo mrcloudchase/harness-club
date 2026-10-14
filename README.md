@@ -7,6 +7,7 @@ A group of builders who do harness engineering. We meet to learn it and to build
 We start with a starter harness from the [curriculum](https://github.com/averagejoeslab/harness-engineering), then push the bounds. The best harness is the one you control.
 
 **Site:** https://mrcloudchase.github.io/harness-club/
+
 **Discord:** https://discord.gg/fhZzuRgpvH
 
 ## The rules
