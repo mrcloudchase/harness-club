@@ -1,0 +1,260 @@
+<title>The Harness Club</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Harness Club exists for one thing: harness engineering. Builders come together to learn and build. The best harness is the one you control.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: a dark basement page under fluorescent grime; a pink soap bar for a mark, rules typed on a taped-up sheet, reel-change cue marks in the corners. Single dark theme on purpose. */
+:root {
+  --night: #11130F;
+  --grime: #1B1E17;
+  --bone: #E6DFCB;
+  --dim: #9C9884;
+  --soap: #F2A3BE;
+  --blood: #FF3D7F;
+  --sheet: #D8D0B8;
+  --sheet-ink: #1E1B16;
+  --display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --type: "Special Elite", "Courier New", monospace;
+  --body: "Courier Prime", "Courier New", ui-monospace, monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--night); }
+body {
+  background: var(--night); color: var(--bone);
+  font-family: var(--body); font-size: 1.08rem; line-height: 1.65;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(190, 210, 150, .10), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(255, 61, 127, .06), transparent 70%);
+  min-height: 100%;
+  overflow-x: hidden;
+}
+/* film grain */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: .16; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain .9s steps(3) infinite;
+}
+@keyframes grain { 0% { transform: translate(0,0); } 33% { transform: translate(-12px, 8px); } 66% { transform: translate(9px, -11px); } }
+
+.wrap {
+  max-width: 66rem; margin: 0 auto; position: relative;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--blood); outline-offset: 4px; }
+
+/* reel-change cue mark */
+.cue { position: absolute; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle, #f3ecd6 0 35%, rgba(243,236,214,.6) 55%, transparent 72%); opacity: .55; }
+.cue.a { top: 1.6rem; right: max(16px, env(safe-area-inset-right, 0px)); }
+.cue.b { bottom: 2rem; right: max(16px, env(safe-area-inset-right, 0px)); animation: cue 7s steps(1) infinite; }
+@keyframes cue { 0%, 92% { opacity: .55; } 93%, 97% { opacity: 1; } 98% { opacity: .55; } }
+
+/* hero */
+.hero { padding-block: clamp(3.5rem, 10vw, 7rem) clamp(3rem, 8vw, 5.5rem); position: relative; }
+.soap {
+  display: inline-grid; place-items: center; width: 9.5rem; height: 5.4rem; border-radius: 1.6rem / 1.4rem;
+  background: linear-gradient(160deg, #f8c3d4 0%, var(--soap) 45%, #d97e9e 100%);
+  box-shadow: inset 0 -6px 10px rgba(120, 30, 60, .35), inset 0 5px 8px rgba(255,255,255,.45), 0 14px 30px rgba(0,0,0,.55);
+  transform: rotate(-6deg); margin-bottom: 2.5rem;
+}
+.soap span {
+  font-family: var(--display); font-size: 1.05rem; letter-spacing: .14em; line-height: 1; text-align: center; color: #c86c8c;
+  text-shadow: 0 1px 0 rgba(255,255,255,.55), 0 -1px 0 rgba(110, 20, 50, .45);
+}
+.kicker { font-family: var(--type); color: var(--dim); font-size: 1rem; margin: 0 0 .75rem; letter-spacing: .02em; }
+h1 {
+  font-family: var(--display); font-weight: 400; text-transform: uppercase; margin: 0;
+  font-size: clamp(3.4rem, 14vw, 10.5rem); line-height: .86; letter-spacing: .005em; color: var(--bone);
+  text-wrap: balance; position: relative;
+}
+h1 .pink { color: var(--blood); }
+.scrawl {
+  font-family: var(--type); font-size: clamp(1.3rem, 3.2vw, 2rem); line-height: 1.3; margin: 2.25rem 0 0; max-width: 38rem;
+  color: var(--bone);
+}
+.scrawl em { font-style: normal; color: var(--soap); border-bottom: 2px solid var(--blood); }
+.ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.5rem; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; text-transform: uppercase;
+  font-family: var(--display); font-size: 1.15rem; letter-spacing: .08em;
+  padding: .85rem 1.4rem .8rem; border: 2px solid var(--bone);
+  transition: transform .12s ease, background-color .12s ease, color .12s ease;
+}
+.btn svg { width: 22px; height: 22px; flex: none; }
+.btn.hit { background: var(--blood); border-color: var(--blood); color: var(--night); }
+.btn.hit:hover { transform: rotate(-1.5deg) scale(1.03); }
+.btn.ghost:hover { background: var(--bone); color: var(--night); }
+.soon { font-family: var(--type); font-size: .9rem; color: var(--dim); margin: 1rem 0 0; }
+
+/* sections */
+section { padding-block: clamp(3rem, 8vw, 5.5rem); border-top: 1px dashed rgba(230, 223, 203, .18); }
+.label { font-family: var(--type); color: var(--blood); font-size: .95rem; margin: 0 0 .9rem; letter-spacing: .04em; }
+h2 {
+  font-family: var(--display); font-weight: 400; text-transform: uppercase; margin: 0;
+  font-size: clamp(2.2rem, 6.5vw, 4.25rem); line-height: .92; letter-spacing: .01em; text-wrap: balance;
+}
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem 4rem; margin-top: 2.25rem; }
+.cols p { margin: 0 0 1.1rem; max-width: 33rem; }
+.cols p:last-child { margin-bottom: 0; }
+.big { font-family: var(--type); font-size: clamp(1.2rem, 2.4vw, 1.5rem); line-height: 1.4; }
+
+/* the two nights */
+.nights { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+.night { background: var(--grime); border: 1px solid rgba(230, 223, 203, .12); padding: 1.75rem 1.6rem 1.9rem; position: relative; }
+.night .when { font-family: var(--type); color: var(--dim); font-size: .9rem; }
+.night h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 1.9rem; line-height: 1; letter-spacing: .02em; margin: .5rem 0 .9rem; }
+.night.two h3 { color: var(--blood); }
+.night p { margin: 0 0 1rem; color: var(--bone); }
+.night ol { margin: 0; padding: 0; list-style: none; font-size: .95rem; }
+.night li { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr); gap: .5rem; padding-block: .35rem; border-top: 1px dashed rgba(230, 223, 203, .14); }
+.night li b { font-family: var(--display); font-weight: 400; color: var(--soap); }
+.night li code { font-family: var(--body); color: var(--dim); font-size: .85rem; }
+
+/* the rules sheet */
+.sheet-holder { margin-top: 2.75rem; display: flex; justify-content: center; }
+.sheet {
+  position: relative; width: 100%; max-width: 44rem; background: var(--sheet); color: var(--sheet-ink);
+  padding: clamp(2rem, 5vw, 3.25rem) clamp(1.25rem, 5vw, 3.25rem); transform: rotate(-.8deg);
+  box-shadow: 0 30px 60px rgba(0,0,0,.6), inset 0 0 80px rgba(120, 100, 60, .28);
+  background-image: radial-gradient(ellipse at 20% 15%, rgba(140, 110, 60, .18), transparent 40%), radial-gradient(ellipse at 85% 90%, rgba(90, 70, 40, .2), transparent 45%);
+}
+.tape { position: absolute; top: -14px; width: 110px; height: 30px; background: rgba(235, 228, 200, .55); box-shadow: 0 2px 4px rgba(0,0,0,.25); }
+.tape.l { left: 12%; transform: rotate(-5deg); }
+.tape.r { right: 12%; transform: rotate(4deg); }
+.sheet h3 { font-family: var(--type); font-weight: 400; font-size: clamp(1.2rem, 3vw, 1.55rem); margin: 0 0 1.5rem; text-align: center; letter-spacing: .06em; text-transform: uppercase; }
+.sheet ol { margin: 0; padding: 0; list-style: none; counter-reset: r; font-family: var(--type); font-size: clamp(.98rem, 2.2vw, 1.12rem); line-height: 1.5; }
+.sheet li { counter-increment: r; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .5rem; padding-block: .55rem; }
+.sheet li::before { content: counter(r) "."; }
+.sheet li s { text-decoration-color: #b0123f; text-decoration-thickness: 2px; }
+.sheet li .fix { color: #b0123f; }
+
+/* join */
+.join { text-align: left; }
+.join .big { max-width: 36rem; margin: 1.5rem 0 0; }
+.join .ctas { margin-top: 2rem; }
+
+footer { padding-block: 2.5rem 3.5rem; font-size: .9rem; color: var(--dim); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; border-top: 1px dashed rgba(230, 223, 203, .18); }
+
+@media (max-width: 760px) {
+  .cols, .nights { grid-template-columns: minmax(0, 1fr); }
+  .sheet { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::after, .cue.b { animation: none; }
+  .btn { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <span class="cue a" aria-hidden="true"></span>
+
+  <div class="hero">
+    <div class="soap" aria-hidden="true"><span>HARNESS<br>CLUB</span></div>
+    <p class="kicker">Welcome to</p>
+    <h1>Harness<br><span class="pink">Club.</span></h1>
+    <p class="scrawl">The best harness is <em>the one you control.</em></p>
+    <div class="ctas">
+      <a class="btn hit js-discord" href="https://github.com/mrcloudchase/the-harness-club">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18 18 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.8 19.8 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.2 0l.5.4a12.8 12.8 0 0 1-2 1l1.3 2a19.7 19.7 0 0 0 6-3c.5-5.2-.9-9.8-3.6-13.8ZM8 15.4c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.6 8 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>
+        <span class="js-discord-label">Discord</span>
+      </a>
+      <a class="btn ghost" href="https://github.com/averagejoeslab/harness-engineering">The curriculum</a>
+    </div>
+    <p class="soon js-soon" hidden>The Discord isn't open yet.</p>
+  </div>
+
+  <section id="purpose">
+    <p class="label">// why we're here</p>
+    <h2>What it is</h2>
+    <div class="cols">
+      <p class="big">Harness Club is a group of builders who do harness engineering. We meet to learn it and to build it.</p>
+      <div>
+        <p>The model is the mind. The harness is the body: the loop, the tools, the context, the guardrails.</p>
+        <p>We build our own harnesses so we understand every part and decide how it works.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <p class="label">// how it goes</p>
+    <h2>Start with the basics.<br>Then push the bounds.</h2>
+    <div class="nights">
+      <div class="night">
+        <span class="when">First, everyone</span>
+        <h3>The starter harness</h3>
+        <p>We start with an intro to the curriculum and build a working harness from scratch, one runnable step at a time.</p>
+        <ol>
+          <li><b>1</b><span>Reach the model <code>1_model_interface.py</code></span></li>
+          <li><b>2</b><span>Let someone ask <code>2_input.py</code></span></li>
+          <li><b>3</b><span>Let it act <code>3_output.py</code></span></li>
+          <li><b>4</b><span>Let it keep going <code>4_control_flow.py</code></span></li>
+          <li><b>5</b><span>Give it context <code>harness.py</code></span></li>
+        </ol>
+      </div>
+      <div class="night two">
+        <span class="when">Then, every time after</span>
+        <h3>Push the bounds</h3>
+        <p>After that, we try things: new tools, different loops, other ways to manage context, tighter guardrails, harder tasks.</p>
+        <p>We break harnesses, fix them, and show each other what worked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <p class="label">// house rules</p>
+    <h2>The rules</h2>
+    <div class="sheet-holder">
+      <div class="sheet">
+        <span class="tape l" aria-hidden="true"></span><span class="tape r" aria-hidden="true"></span>
+        <h3>Rules of Harness Club</h3>
+        <ol>
+          <li><span>The first rule of Harness Club: you <s>do not</s> <span class="fix">DO</span> talk about Harness Club.</span></li>
+          <li><span>Everyone is here to learn. Ask anything.</span></li>
+          <li><span>The best harness is the one you control. Build your own.</span></li>
+          <li><span>No sales. No pitches. No pricing slides.</span></li>
+          <li><span>Bring any model. The harness is the work.</span></li>
+          <li><span>If it hasn't run, it isn't a demo.</span></li>
+          <li><span>Builds go on as long as they have to.</span></li>
+          <li><span>If this is your first night at Harness Club, you build.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="join">
+    <p class="label">// where to find us</p>
+    <h2>Discord</h2>
+    <p class="big">We use Discord to plan meetups, share builds, and help each other. If you want to start a chapter in your city, ask there.</p>
+    <div class="ctas">
+      <a class="btn hit js-discord" href="https://github.com/mrcloudchase/the-harness-club">
+        <span class="js-discord-label">Discord</span>
+      </a>
+    </div>
+    <p class="soon js-soon" hidden>Opening soon.</p>
+    <span class="cue b" aria-hidden="true"></span>
+  </section>
+
+  <footer>
+    <span>Started by <a href="https://cdovey.dev/">Chase Dovey</a> · <a href="https://github.com/averagejoeslab">Average Joes Lab</a></span>
+    <span>Curriculum: <a href="https://github.com/averagejoeslab/harness-engineering">harness-engineering</a></span>
+  </footer>
+</div>
+
+<script>
+  // Paste the Discord invite here when the server exists, e.g. "https://discord.gg/abc123".
+  // Until then, the buttons point to the GitHub repo and say the Discord is coming.
+  const DISCORD_URL = "";
+
+  document.querySelectorAll(".js-discord").forEach(a => {
+    if (DISCORD_URL) a.href = DISCORD_URL;
+  });
+  if (!DISCORD_URL) {
+    document.querySelectorAll(".js-discord-label").forEach(s => s.textContent = "Discord (coming soon)");
+    document.querySelectorAll(".js-soon").forEach(p => p.hidden = false);
+  }
+</script>
