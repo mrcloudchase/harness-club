@@ -1,6 +1,11 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Harness Club</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Harness Club exists for one thing: harness engineering. Builders come together to learn and build. The best harness is the one you control.">
+<meta name="description" content="Harness Club is a group of builders who do harness engineering. We meet to learn it and to build it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
@@ -22,6 +27,9 @@
 }
 
 * { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
 html { background: var(--night); }
 body {
   background: var(--night); color: var(--bone);
@@ -149,7 +157,8 @@ footer { padding-block: 2.5rem 3.5rem; font-size: .9rem; color: var(--dim); disp
   .btn { transition: none; }
 }
 </style>
-
+</head>
+<body>
 <div class="wrap">
   <span class="cue a" aria-hidden="true"></span>
 
@@ -258,3 +267,5 @@ footer { padding-block: 2.5rem 3.5rem; font-size: .9rem; color: var(--dim); disp
     document.querySelectorAll(".js-soon").forEach(p => p.hidden = false);
   }
 </script>
+</body>
+</html>
